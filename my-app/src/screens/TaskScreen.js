@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { getTasks } from '../api';
+import LightSensorComponent from '../sensors/LightSensor';
 
 const TaskScreen = () => {
   const [tasks, setTasks] = useState([]);
@@ -14,6 +15,7 @@ const TaskScreen = () => {
     try {
       const fetchedTasks = await getTasks();
       setTasks(fetchedTasks);
+      
     } catch (error) {
       console.error('Error fetching tasks:', error);
     }
@@ -30,6 +32,7 @@ const TaskScreen = () => {
           keyExtractor={(item) => item.id.toString()}
         />
       )}
+      <LightSensorComponent />
     </View>
   );
 };

@@ -6,7 +6,7 @@ import { TaskProvider } from './src/TaskContext';
 import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import MainScreen from './src/screens/MainScreen';
-import TaskScreen from './src/screens/TaskScreen'; // Asegúrate de que el nombre sea correcto
+import TaskScreen from './src/screens/TaskScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -23,7 +23,7 @@ const AuthStack = ({ setIsLoggedIn }) => (
 const AppTabs = () => (
   <Tab.Navigator>
     <Tab.Screen name="Main" component={MainScreen} />
-    <Tab.Screen name="Tasks" component={TaskScreen} /> {/* Asegúrate de no tener comentarios aquí */}
+    <Tab.Screen name="Tasks" component={TaskScreen} />
   </Tab.Navigator>
 );
 

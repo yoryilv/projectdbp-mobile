@@ -1,4 +1,3 @@
-// src/notificationHelper.js
 import * as Notifications from 'expo-notifications';
 
 export const requestPermissions = async () => {

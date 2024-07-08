@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 
-const API_URL = 'http://52.90.215.71:8080';
+const API_URL = 'http://3.235.247.255:8080';
 
 export const login = async (email, password) => {
   try {
@@ -35,17 +35,13 @@ export const logout = async () => {
 
 const getAuthHeaders = async () => {
   const token = await SecureStore.getItemAsync('token');
-  return {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+  return {headers: {Authorization: `Bearer ${token}`,},};
 };
 
 export const getTasks = async () => {
   try {
     const config = await getAuthHeaders();
-    const response = await axios.get(API_URL, config);
+    const response = await axios.get(`${API_URL}/tasks`, config);
     return response.data;
   } catch (error) {
     console.error('Error fetching tasks:', error);
@@ -56,7 +52,7 @@ export const getTasks = async () => {
 export const createTask = async (task) => {
   try {
     const config = await getAuthHeaders();
-    const response = await axios.post(API_URL, task, config);
+    const response = await axios.post(`${API_URL}/tasks`, task, config);
     return response.data;
   } catch (error) {
     console.error('Error creating task:', error);
